@@ -30,6 +30,8 @@ const Login = (props) => {
 
 const Container = styled.div`
   padding: 0px;
+  margin-left: 5px;
+  margin-right: 5px;
 `;
 
 const Nav = styled.nav`
@@ -124,6 +126,7 @@ const Hero = styled.div`
       font-size: 20px;
       width: 100%;
       line-height: 2;
+      font-weight: 400;
     }
   }
 
