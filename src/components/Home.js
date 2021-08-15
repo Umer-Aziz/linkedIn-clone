@@ -3,17 +3,21 @@ import styled from 'styled-components'
 import LeftSide from './LeftSide'
 import Main from './Main'
 import RightSide from './RightSide'
+import { Helmet } from 'react-helmet';
 
 const Home = () => {
     return (
+      <>
+      <Helmet>
+        <title>Feed | LinkedIn</title>
+       </Helmet>
         <Container>
             <Section>
             <h5>
           <a>Hiring in a hurry? - </a>
         </h5>
         <p>
-          Find talented pros in record time with Upwork and keep business
-          moving.
+          Find talents in record time with LinkedIn Premium and unlock special benifits!
         </p>
             </Section>
             <Layout>
@@ -22,11 +26,14 @@ const Home = () => {
                 <RightSide/>
             </Layout>
         </Container>
+        </>
     )
 }
 const Container = styled.div `
-padding-top:72px;
-margin-left: 10px;
+padding-top:52px;
+@media (max-width:768px){
+  padding-top:72px;
+}
 
 `;
 
@@ -37,7 +44,7 @@ width: 1128px;
 
 `;
 const Section = styled.section `
- min-height: 50px;
+ 
   padding: 16px 0;
   box-sizing: content-box;
   text-align: center;
@@ -45,6 +52,11 @@ const Section = styled.section `
   display: flex;
   justify-content: center;
   cursor: pointer;
+  @media (max-width:768px){
+    min-height: 50px;
+  }
+
+
   h5 {
     color: #0a66c2;
     font-size: 14px;

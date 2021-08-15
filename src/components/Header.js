@@ -1,101 +1,95 @@
-import React from 'react'
-import { Helmet } from 'react-helmet';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 const Header = () => {
-       
-    return (
-        <>
-             <Helmet>
-        <title>Feed | LinkedIn</title>
-       </Helmet>
-        
-        <div>
-            <Container>
-           <Content>
-           <Logo>
-          <a href="/home">
-            <img src="/images/home-logo.svg" alt="" />
-          </a>
-        </Logo>
-        <Search>
-          <div>
-            <input type="text" placeholder="Search" />
-          </div>
-          <SearchIcon>
-            <img src="/images/search-icon.svg" alt="" />
-          </SearchIcon>
-        </Search>
-        <Nav>
-          <NavListWrap>
-            <NavList className="active">
-              <a>
-                <img src="/images/nav-home.svg" alt="" />
-                <span>Home</span>
+  return (
+    <>
+      <div>
+        <Container>
+          <Content>
+            <Logo>
+              <a href="/home">
+                <img src="/images/home-logo.svg" alt="" />
               </a>
-            </NavList>
+            </Logo>
+            <Search>
+              <div>
+                <input type="text" placeholder="Search" />
+              </div>
+              <SearchIcon>
+                <img src="/images/search-icon.svg" alt="" />
+              </SearchIcon>
+            </Search>
+            <Nav>
+              <NavListWrap>
+                <NavList className="active">
+                  <a>
+                    <img src="/images/nav-home.svg" alt="" />
+                    <span>Home</span>
+                  </a>
+                </NavList>
 
-            <NavList>
-              <a>
-                <img src="/images/nav-network.svg" alt="" />
-                <span>My Network</span>
-              </a>
-            </NavList>
+                <NavList>
+                  <a>
+                    <img src="/images/nav-network.svg" alt="" />
+                    <span>My Network</span>
+                  </a>
+                </NavList>
 
-            <NavList>
-              <a>
-                <img src="/images/nav-jobs.svg" alt="" />
-                <span>Jobs</span>
-              </a>
-            </NavList>
+                <NavList>
+                  <a>
+                    <img src="/images/nav-jobs.svg" alt="" />
+                    <span>Jobs</span>
+                  </a>
+                </NavList>
 
-            <NavList>
-              <a>
-                <img src="/images/nav-messaging.svg" alt="" />
-                <span>Messaging</span>
-              </a>
-            </NavList>
+                <NavList>
+                  <a>
+                    <img src="/images/nav-messaging.svg" alt="" />
+                    <span>Messaging</span>
+                  </a>
+                </NavList>
 
-            <NavList>
-              <a>
-                <img src="/images/nav-notifications.svg" alt="" />
-                <span>Notifications</span>
-              </a>
-            </NavList>
+                <NavList>
+                  <a>
+                    <img src="/images/nav-notifications.svg" alt="" />
+                    <span>Notifications</span>
+                  </a>
+                </NavList>
 
-            <User>
-              <a>
-                <img src="/images/user.svg" alt="" />
-                <span>Me
-                <img src="/images/down-icon.svg" alt="" />
-                </span>
-              </a>
+                <User>
+                  <a>
+                    <img src="https://media-exp1.licdn.com/dms/image/C4D03AQFiU2yvc-NDWA/profile-displayphoto-shrink_100_100/0/1616837029697?e=1634774400&v=beta&t=P0Kxv9V08495NNjbFdGZmzQkU1MORsTN-PL8kt_M8-k" alt="" />
+                    <span>
+                      Me
+                      <img src="/images/down-icon.svg" alt="" />
+                    </span>
+                  </a>
 
-              <SignOut>
-                <a>Sign Out</a>
-              </SignOut>
-            </User>
+                  <SignOut>
+                    <a>Sign Out</a>
+                  </SignOut>
+                </User>
 
-            <Work>
-              <a>
-                <img src="/images/nav-work.svg" alt="" />
-                <span>
-                  Work
-                  <img src="/images/down-icon.svg" alt="" />
-                </span>
-              </a>
-            </Work>
-            <TextPremium>
-            <a href="/home">Try Premium for free</a>
-            </TextPremium>
-            
-          </NavListWrap>
-        </Nav>
-           </Content>
-            </Container>
-        </div>
-        </>
-    )
-}
+                <Work>
+                  <a>
+                    <img src="/images/nav-work.svg" alt="" />
+                    <span>
+                      Work
+                      <img src="/images/down-icon.svg" alt="" />
+                    </span>
+                  </a>
+                </Work>
+                <TextPremium>
+                  <a href="/home">Try Premium for free</a>
+                </TextPremium>
+              </NavListWrap>
+            </Nav>
+          </Content>
+        </Container>
+      </div>
+    </>
+  );
+};
 
 const Container = styled.div`
   background-color: white;
@@ -113,13 +107,16 @@ const Content = styled.div`
   margin: 0 auto;
   min-height: 100%;
   max-width: 1128px;
+  @media (min-width: 769px) {
+    margin-left: 185px;
+  }
 `;
 const Logo = styled.span`
   margin-right: 8px;
   font-size: 0px;
-  @media(max-width:728px){
-      margin-top:10px;
-      margin-bottom:10px;
+  @media (max-width: 728px) {
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
 `;
 const Search = styled.div`
@@ -132,16 +129,21 @@ const Search = styled.div`
       border: none;
       box-shadow: none;
       background-color: #eef3f8;
-      border-radius: 2px;
+      border-radius: 4px;
       color: rgba(0, 0, 0, 0.9);
       width: 218px;
       padding: 0 8px 0 40px;
       line-height: 1.75;
       font-size: 14px;
       height: 34px;
-      border-color: #dce6f1;
+      border: 1px solid#dce6f1;
       vertical-align: text-top;
-      outline-color: #dce6f1;
+      outline-width:0;
+      &:focus{
+        width:300px;
+        font-size:16px;
+        transition:width 0.2s ease;
+      }
     }
   }
 `;
@@ -266,23 +268,22 @@ const Work = styled(User)`
   border-left: 1px solid rgba(0, 0, 0, 0.08);
 `;
 
-const TextPremium = styled.div `
+const TextPremium = styled.div`
   font-size: 12px;
-  width:100px;
+  width: 100px;
   display: flex;
   align-items: center;
   font-weight: 400;
-  text-align:center;
-  a{
-    color:#915907;
-    line-height:150%;
-    text-decoration:none;
+  text-align: center;
+  a {
+    color: #915907;
+    line-height: 150%;
+    text-decoration: none;
   }
-  &:hover{
-      cursor:pointer;
-      text-decoration:underline;
-      
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
   }
 `;
 
-export default Header
+export default Header;
