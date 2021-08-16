@@ -124,8 +124,8 @@ const Recommendation = styled.a`
 `;
 const BannerCard = styled(FollowSide)`
   img {
-    width: 300px;
-    height: 250px;
+    width: 100%;
+    height: 100%;
   }
 `;
 

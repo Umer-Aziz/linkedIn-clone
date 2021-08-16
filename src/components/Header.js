@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-const Header = () => {
+import { connect } from "react-redux";
+import { signOutAPI } from "../actions";
+const Header = (props) => {
   return (
     <>
       <div>
@@ -58,14 +60,19 @@ const Header = () => {
 
                 <User>
                   <a>
-                    <img src="https://media-exp1.licdn.com/dms/image/C4D03AQFiU2yvc-NDWA/profile-displayphoto-shrink_100_100/0/1616837029697?e=1634774400&v=beta&t=P0Kxv9V08495NNjbFdGZmzQkU1MORsTN-PL8kt_M8-k" alt="" />
+                  {
+                    props.user && props.user.photoURL ?
+                    <img src={props.user.photoURL} alt=""/>
+                  :(
+                    <img src="/images/user.svg" alt=""/>
+                  )}
                     <span>
                       Me
                       <img src="/images/down-icon.svg" alt="" />
                     </span>
                   </a>
 
-                  <SignOut>
+                  <SignOut onClick={()=>props.signOut()}>
                     <a>Sign Out</a>
                   </SignOut>
                 </User>
@@ -285,5 +292,14 @@ const TextPremium = styled.div`
     text-decoration: underline;
   }
 `;
+const mapStateToProps = (state) => {
+  return {
+      user: state.userState.user,
+  };
+};
+const mapDispatchToProps = (dispatch) => ({
+  signOut: () => dispatch(signOutAPI()),
+});
 
-export default Header;
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
+

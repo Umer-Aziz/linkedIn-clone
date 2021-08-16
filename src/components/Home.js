@@ -4,14 +4,16 @@ import LeftSide from './LeftSide'
 import Main from './Main'
 import RightSide from './RightSide'
 import { Helmet } from 'react-helmet';
-
-const Home = () => {
+import { Redirect } from 'react-router'
+import { connect } from 'react-redux'
+const Home = (props) => {
     return (
       <>
       <Helmet>
         <title>Feed | LinkedIn</title>
        </Helmet>
         <Container>
+        {!props.user && <Redirect to="/"/>}
             <Section>
             <h5>
           <a>Hiring in a hurry? - </a>
@@ -91,4 +93,10 @@ grid-template-columns: minmax(0, 5fr) minmax(0, 12fr) minmax(300px, 7fr);
   }
 
 `;
-export default Home
+const mapStateToProps = (state) => {
+  return {
+      user: state.userState.user,
+  };
+};
+
+export default connect(mapStateToProps)(Home);
