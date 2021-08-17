@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { connect } from 'react-redux'
 
 const LeftSide = (props) => {
     return (
@@ -8,8 +9,8 @@ const LeftSide = (props) => {
             <UserInfo>
               <CardBack/>
               <a>
-                <Photo />
-                <Link>Welcome, there!</Link>
+                <Photo style={{backgroundImage: `url(${  props.user ? props.user.photoURL : "/images/photo.svg" })`}} />
+                <Link>Welcome, {props.user ? props.user.displayName : "there"}!</Link>
               </a>
               <a>
             <AddPhotoText>Add a photo</AddPhotoText>
@@ -87,11 +88,10 @@ const CardBack = styled.div `
 `;
 const Photo = styled.div`
   box-shadow: none;
-  background-image: url("/images/photo.svg");
   width: 72px;
   height: 72px;
   box-sizing: border-box;
-  background-size: 60%;
+  background-size: cover;
   background-repeat: no-repeat;
   border: 2px solid white;
   margin: -38px auto 12px;
@@ -199,4 +199,11 @@ padding: 8px 0 0;
   }
 `;
 
-export default LeftSide
+const mapStateToProps = (state) => {
+  return {
+      user: state.userState.user,
+  };
+};
+
+export default connect(mapStateToProps)(LeftSide);
+

@@ -6,6 +6,7 @@ import YouTubeIcon from "@material-ui/icons/YouTube";
 import EventNoteIcon from "@material-ui/icons/EventNote";
 import AssignmentIcon from "@material-ui/icons/Assignment";
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
+import PostModel from "./PostModel"
 
 const Main = () => {
   return (
@@ -94,6 +95,7 @@ const Main = () => {
           </button>
         </SocialActions>
       </Article>
+      {/* <PostModel/> */}
     </Container>
   );
 };
@@ -252,7 +254,7 @@ const SocialCounts = styled.ul`
   display: flex;
   overflow: auto;
   align-items: flex-start;
-  margin: 0 16px;
+  margin: 0 12px;
   padding: 8px 0;
   list-style: none;
   border-bottom: 1px solid #e9e5df;
